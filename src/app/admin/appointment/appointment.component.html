@@ -1,0 +1,78 @@
+<div class="container" [ngStyle]="{'filter':containerBrightness}">
+    <div class="page-heading">
+        <p>{{pageHeading}}</p>
+    </div>
+    
+    <div class="add-new">
+      <button class="btn btn-success btn-lg" (click)="showForm()">Schedule +</button>
+    </div>
+    
+    <div class="allData">
+      <h1 class="table-name">{{tableName}}</h1>
+      <table class="table table-hover">
+        <thead>
+          <th>Appointment Id</th>
+          <th>Docotor Id</th>
+          <th>Patient Id</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Action</th>
+        </thead>
+        <tbody>
+          <!-- <tr *ngFor="let patient of patientsArr">
+              <td>{{patient.id}}</td>
+              <td>{{patient.name}}</td>
+              <td>{{patient.email}}</td>
+              <td>{{patient.gender}}</td>
+              <td>{{patient.dob}}</td>
+              <td>{{patient.mobile}}</td>
+              <td>{{patient.docId}}</td>
+              <td>
+                  <button class="btn btn-primary">
+                    <i class="fa fa-edit"></i>
+                  </button>
+                  <button class="btn btn-danger">
+                    <i class="fa fa-trash"></i>
+                  </button>
+              </td>
+            </tr> -->
+        </tbody>
+    </table>
+  </div>
+
+</div>
+<div class="add-new-form" [ngStyle]="{'display':showAppointmentForm}">
+  <div class="form-close-btn">
+    <button (click)="closeForm()">
+      <i class="fa fa-window-close" aria-hidden="true"></i>
+    </button>
+  </div>
+      <form class="row g-3 needs-validation" novalidate [formGroup]="scheduleAppointment" (ngSubmit)="onSubmit()">
+          <div class="row mb-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Doctor Id</label>
+            <div class="col-sm-10">
+              <input type="Number" class="form-control" placeholder="4" formControlName="doctorId" require>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Patient Id</label>
+            <div class="col-sm-10">
+              <input type="Number" class="form-control" placeholder="10" formControlName="patientId">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Date</label>
+            <div class="col-sm-10">
+              <input type="date" class="form-control" formControlName="date">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Time Slot</label>
+            <div class="col-sm-10">
+              <input type="time" class="form-control" formControlName="time">
+            </div>
+          </div>
+          
+          <button type="submit" class="btn btn-success">Book Appointment</button>
+        </form>
+  </div>

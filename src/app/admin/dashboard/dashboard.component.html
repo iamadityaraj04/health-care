@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="page-heading">
+        <p>{{pageHeading}}</p>
+    </div>
+    <div class="total-count">
+        <div class="count">
+            <div class="icon">
+                <i class="fa fa-stethoscope"></i>
+            </div>
+            <div class="details">
+                <p class="details-count">{{doctorCount}}</p>
+                <p class="details-category">Doctors</p>
+            </div>
+        </div>
+        <div class="count">
+            <div class="icon">
+                <i class="fa fa-users"></i>
+            </div>
+            <div class="details">
+                <p class="details-count">{{patientCount}}</p>
+                <p class="details-category">Patients</p>
+            </div>
+        </div>
+        <div class="count">
+            <div class="icon">
+                <i class="fa fa-calendar"></i>
+            </div>
+            <div class="details">
+                <p class="details-count">{{appointmentCount}}</p>
+                <p class="details-category">Appointments</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- dashboard-chart -->
+    <div style="display: flex;flex-direction: row; max-height: 550px;">
+        <div class="chart">
+            <p id="chart-heading">Patients Registration</p>
+            <canvas id="genderChart"></canvas>
+        </div>
+        <div id="show-doctors">
+            <p id="show-doctors-heading">Available Doctors</p>
+            <div class="doctors" *ngFor="let doctor of doctors">
+                <div class="doctor-info">
+                    <p class="doctor-name">{{doctor.name}}</p>
+                    <p class="doctor-spetialization">{{doctor.specialization}} </p>
+                </div>
+                <div class="appointment-info">
+                    <p class="total-appointment">Appointments: <span>{{doctor.appointments}}</span></p>
+                    <button class="btn btn-primary appointment-btn" routerLink="/admin/appointment">Book Appointment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

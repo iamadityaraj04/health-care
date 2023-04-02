@@ -1,0 +1,118 @@
+
+.total-count{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.count{
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 2px solid #f9f9f9;
+    padding: 1rem;
+    border-radius: 0.313rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+.fa{
+    font-size: 40px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+}
+.fa-stethoscope{
+    background-color: #EDF1D6;
+    color: #609966;
+}
+.fa-users{
+    background-color: #F4D9E7;
+    color: #FF597B;
+    
+}
+.fa-calendar{
+    background-color: #ECF2FF;
+    color: #146C94;
+    
+}
+.icon{
+    margin-left: 20px;
+    margin-right: 30px;
+}
+.details-count{
+    font-size: 40px;
+    font-weight: 500;
+    color: black;
+}
+.details-category{
+    font-size: 20px;
+    font-weight: 400;
+    color:grey;
+}
+.count:hover{
+    transform: scale(1.02);
+    transition-duration: .2s;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 2px solid #8ec3b0;
+}
+
+/* chart */
+.chart{
+    margin-top: 60px;
+    padding: 20px;
+    box-shadow: 0px 0px 5px -1px #8ec3b0;
+    min-width: 60%;
+    max-height: 100%;
+    border-radius: 0.313rem;
+    background-color: #f9f9f9;
+}
+#chart-heading,#show-doctors-heading{
+    font-size: 30px;
+    font-weight: 300;
+    margin: 20px;
+}
+
+/* show doctors */
+#show-doctors{
+    border-radius: 0.313rem;
+    background-color: #f9f9f9;
+    margin-left: 3%;
+    margin-top: 60px;
+    padding: 20px;
+    box-shadow: 0px 0px 5px -1px #8ec3b0;
+    min-width: 37%;
+    overflow-y: scroll ;
+}
+.doctors{
+    background-color: #def5ef;
+    margin: 30px 10px;
+    padding: 10px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 0px 5px -1px #8EC3B0;
+}
+.doctor-name{
+    font-size: 20px;
+    font-weight: 500;
+}
+.doctor-spetialization{
+    font-size: 15px;
+    color: gray;
+}
+.total-appointment{
+    font-size: 12px;
+    color: grey;
+}
+.total-appointment span{
+    color: rgb(0, 0, 0);
+}
+.appointment-info button{
+    font-size: 10px;
+}

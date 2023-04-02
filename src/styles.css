@@ -1,1 +1,132 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    position: relative;
+}
+.container{
+    padding: 1.5rem;
+}
+.page-heading{
+    min-width: 100%;
+    padding: 20px 30px;
+    background-color: #def5ef;
+    margin-bottom: 50px;
+    border-radius: 0.313rem;
+    font-size: 30px;
+    font-weight: 500;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;;
+    color: #609966;
+}
+.page-heading p{
+    margin: 0;
+}
+
+/* add-new-form */
+
+.search-bar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+#search-bar{
+    width: 60%;
+    height: 50px;
+    border: none;
+    border-radius: 0.313rem 0rem 0rem 0.313rem;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 20px 50px;
+}
+.table-name{
+    color: #609966;
+    margin: 20px 0px;
+}
+
+.fa{
+    font-size: 20px;
+    font-weight: 100;
+}
+th{
+    text-align: left;
+    border-color: #609966;
+    font-size: 14px;
+    padding-left: 8px;
+}
+td{
+    text-align: left;
+    font-size: 12px;
+}
+td button{
+    margin: 0px 10px;
+}
+.allData{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.add-new{
+    margin-top: 40px;
+}
+.add-new button{
+    border-radius: 50px;
+}
+.btn-success{
+    height: 50px;
+    background-color: #609966;
+    border: none;
+    border-radius: 0rem 0.313rem 0.313rem 0rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/* new-form */
+.add-new-form{
+    width: 80%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    background-color: #ffffff;
+    padding: 50px 100px;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.add-new-form button, .add-new button{
+    border-radius: 50px;
+    padding: 10px 50px;
+}
+.form-close-btn button{
+    border: none;
+    background: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.form-close-btn i{
+    margin: 20px 40px;
+    font-size: 40px;
+    color: rgb(0, 0, 0);
+    border: 1px;
+}
+.form-close-btn i:hover{
+    transition-duration: 0.2s;
+    color: red;
+}
+
+
+
+

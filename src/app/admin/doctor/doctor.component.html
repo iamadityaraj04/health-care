@@ -1,0 +1,102 @@
+<div class="container" [ngStyle]="{'filter':containerBrightness}">
+    <div class="page-heading">
+        <p>{{pageHeading}}</p>
+    </div>
+
+    <div class="search-bar">
+        <input type="number" id="search-bar" placeholder="enter doctor's id" [(ngModel)]="id">
+        <button class="btn btn-success btn-lg"  (click)="searchId()">Search By Id</button>
+    </div>
+    <div class="add-new">
+        <button class="btn btn-success btn-lg" (click)="showForm()">Add Doctor +</button>
+    </div>
+    <div class="add-new">
+        <button class="btn btn-success btn-lg" (click)="viewDoctors()">View All</button>
+    </div>
+
+    <div class="allData">
+        <h1 class="table-name">Doctors</h1>
+
+        <table class="table table-hover">
+            <thead>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>D.O.B</th>
+                <th>Specialization</th>
+                <th>Total Appointments</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let doctor of doctors">
+                    <td>{{doctor.id}}</td>
+                    <td>{{doctor.name}}</td>
+                    <td>{{doctor.email}}</td>
+                    <td>{{doctor.gender.slice(0,1)}}</td>
+                    <td>{{doctor.dob.slice(0,10)}}</td>
+                    <td>{{doctor.specialization}}</td>
+                    <td>{{doctor.appointments}}</td>
+                    <td>
+                        <button class="btn btn-primary">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                        <button class="btn btn-danger">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="add-new-form" [ngStyle]="{'display':showDoctorForm}">
+  <div class="form-close-btn">
+    <button (click)="closeForm()"><i class="fa fa-window-close" aria-hidden="true"></i></button>
+  </div>
+    <form [formGroup]="addDoctor" (ngSubmit)="onSubmit()">
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" placeholder="Dr. Amit Ranjan" formControlName="name" required="">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="ranjan.amit@gmail.com" formControlName="email">
+          </div>
+        </div>
+        <fieldset class="row mb-3">
+          <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" id="gridRadios1" value="Male" formControlName="gender">
+              <label class="form-check-label" for="gridRadios1">
+                Male
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" id="gridRadios2" value="Female" formControlName="gender">
+              <label class="form-check-label" for="gridRadios2">
+                Female
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <div class="row mb-3">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">Date of Birth</label>
+          <div class="col-sm-10">
+            <input type="date" class="form-control" formControlName="dob">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">Specialization</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" placeholder="Physician" formControlName="specialization" >
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+      </form>
+</div>
