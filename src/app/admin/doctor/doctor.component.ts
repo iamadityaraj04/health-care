@@ -2,45 +2,45 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl} from '@angular/forms';
 import { Doctor } from '../../services/doctor/doctor';
 import { DoctorService } from '../../services/doctor/doctor.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-doctor',
   templateUrl: './doctor.component.html',
   styleUrls: ['./doctor.component.css']
 })
-export class DoctorComponent implements OnInit{
+export class DoctorComponent{
   showDoctorForm="none";
+  showUpdateForm="none";
   containerBrightness="brightness(100%)";
   pageHeading="Doctor";
   doctors: Doctor[] = [];
   id!:number;
   constructor(private doctorService:DoctorService){}
 
-  
-  ngOnInit(): void {
-    // this.getAllDoctors();
-  }
+
   
   searchId(){
     this.getDocById(this.id);
-
   }
   
-  docByIdInfo:Doctor[]=[];
   private getDocById(id:number){
     if(id==null){
       alert("Please enter doctor's id.");
     }
     else{
       this.doctorService.getDocById(id).subscribe(
-        data=>{
-          if(data==null){
-            alert("Data not found!")
-          }else{
-            console.log(data);
-            
-            // this.docByIdInfo=data;
-            // alert(this.docByIdInfo);
+        (res)=>{
+          console.log(res);
+        },
+        (err)=>{
+          if(err instanceof HttpErrorResponse) {
+            if(err.status==404){
+              alert("Data Not Found!")
+            }
+            else{
+              console.log(`Status: ${err.status} Message: ${err.message}`);
+            }
           }
         }
       )
@@ -55,12 +55,13 @@ export class DoctorComponent implements OnInit{
 
   private getAllDoctors(){
     this.doctorService.getAllDoctors().subscribe(
-      data=>{
-        this.doctors=data;
-        console.log(data);
-        
+      (res)=>{
+        this.doctors=res;
+      },
+      (err)=>{
+        console.log(err);
       }
-    )
+    );
   }
   
   // add new doctor
@@ -75,7 +76,6 @@ export class DoctorComponent implements OnInit{
   
   showForm(){
     this.showDoctorForm="block";
-    this.containerBrightness="brightness(80%)";
   }
   
   onSubmit(){
@@ -87,27 +87,33 @@ export class DoctorComponent implements OnInit{
       this.addDoctor.reset();
     }
     this.showDoctorForm="none";
-    this.containerBrightness="brightness(100%)";
   }
 
   closeForm(){
     this.showDoctorForm="none";
-    this.containerBrightness="brightness(100%)";
   }
 
   
   private saveFormData(){
-    if(this.addDoctor.value==null){
-      alert("please enter data");
-    }
-    else{
-      this.doctorService.addNewDoctor(this.addDoctor.value).subscribe(
-        data=>{
-          alert("Data Saved Successfully...");
+    this.doctorService.addNewDoctor(this.addDoctor.value).subscribe(
+      (res)=>{
+        alert("Data Saved Successfully...");
+      }
+    );
+  }
+
+// update
+  
+
+
+// delete 
+  deleteDoctor(id:number){
+    if(confirm("Do you want to delete it?")){
+      this.doctorService.deleteDoctor(id).subscribe(
+        (res)=>{
+          this.viewDoctors();
         }
-      )
+      );
     }
   }
-  
-  
 }
